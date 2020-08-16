@@ -1,14 +1,8 @@
-# server
+# server_study
 
 
 
-Node.js Application
+🔆 server study repository 🔆
 
-
-
-Node.js runtime
-
-
-
-Javascript
+참고자료: 생활코딩 Web2 - Node.js, 26th Server seminar 자료
 
