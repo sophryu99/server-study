@@ -21,5 +21,4 @@ new Promise(function(resolve, reject){
     reject();
 });
 
-// Promise chaining: 여러개의 프로미스를 연결하여 사용
 
