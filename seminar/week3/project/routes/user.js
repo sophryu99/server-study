@@ -14,15 +14,27 @@ let resMessage = require('../modules/responseMessage');
     RESPONSE DATA : User ID
 */
 
-// 회원가입
-/* 1단계: 
-1. user.js에 유저 추가하기
-2. response 데이터 내보내기 */
-
+// 1단계
 router.post('/signup', async (req, res) => {
     const { id, name, password, email } = req.body;
     User.push({id, name, password, email});
     res.status(200).send(User);
 });
+
+
+// 2단계
+// router.post('/signup', async (req, res) => {
+//     const { id, name, password, email } = req.body;
+//     // request data 확인 - 없다면 Bad Request 반환
+//     if ( !id || !name || !password || !email ) {
+//         return res.status(400).send({ message: 'BAD REQUEST' });
+//     }
+//     //already ID
+//     if (User.filter(user => user.id == id).length > 0) {
+//         return res.status(400).send({ message: 'ALREADY ID' });
+//     }
+//     User.push({id, name, password, email});
+//     res.status(200).send(User);
+// });
 
 module.exports = router;
