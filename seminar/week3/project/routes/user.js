@@ -17,7 +17,7 @@ let resMessage = require('../modules/responseMessage');
 // 1단계
 router.post('/signup', async (req, res) => {
     const { id, name, password, email } = req.body;
-    User.push({id, name, password, email});
+    UserModel.push({id, name, password, email});
     res.status(200).send(User);
 });
 
