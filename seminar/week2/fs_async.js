@@ -19,7 +19,7 @@ numArr.forEach((num) => {
 
 numArr.forEach((num) => {
     const title = 'async' + num;
-    // 파일 read
+    // 파일 read 
     fs.readFile(`${title}.txt`, (err, data) => {
         if (err) return console.log (err.message);
         console.log(`${title}.txt 파일에는 아래의 데이터가 있습니다. \n"${data}"\n`);
