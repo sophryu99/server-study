@@ -58,6 +58,54 @@ var sehwa = {
 
 ## 흐름 제어
 
+🌟 **동기**와 **비동기**의 차이 (*중요!!*)
+
+쉽게 말하면 상대방의 <u>일정 신호에 의해서 다음 동작이 일어나면</u> **동기**, <u>상대방의 상태와 상관없이 일방적으로 동작</u>하면 **비동기**라고 한다!
+
+
+
+> 예를 들어 siren 소리를 낼때: 
+>
+> play_sound("siren.wav","동기")
+> a=b+c;
+> => 이러면 사이렌 소리가 다 **끝난후** a=b+c가 실행되고
+>
+> play_sound("siren.wav","비동기")
+> a=b+c;
+>
+> => 이러면 a=b+c 이하 프로그램을 계속 **수행하면서** siren소리가 난다.
+
+
+
+🔥 node.js에서는 대부분을 비동기로 실행한다. 따라서 어떤 작업이 먼저 끝날지 모르는데, 순차적인 작업을 위해서 있는 흐름제어 방식이 **promise**이다!!
+
+
+
+**Promise**: ES6부터 공식적으로 포함된 흐름 제어 패턴 내부적 예외처리 구조
+
+```javascript
+// 작업성공
+new Promise(function(resolve, reject) {
+  resolve();
+});
+// 작업실패
+new Promise(function(resolve, reject) {
+  reject();
+});
+```
+
+**Promise chaining**: 여러개의 프로미스를 연결하여 사용
+
+```javascript
+const promise = func1('sopt')
+
+// 이런식으로 중첩해서 많이 사용한다!
+promise
+.then((result) => func2(result))
+.then((result) => func3(result))
+.catch((result) => console.error(result)) // errorhandler1
+```
+
 
 
 ## Module
@@ -151,3 +199,9 @@ terminal에서 express <project이름>으로 프레임워크 생성 가능!
 - Express에서는 app.js에서 모든 요청 경로를 처리하지 않고, routes 폴더 아래의 index.js를 기준으로 파일들을 추가하며 정리
 - 한 파일에 모든 라우팅을 관리하는 건 지양
 
+
+
+> 1. 최상위 폴더에서 sudo npm install –g express-generator
+> 2. express <폴더이름>
+> 3. npm install
+> 4. npm start
