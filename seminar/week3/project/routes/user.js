@@ -61,6 +61,11 @@ router.post('/signup', async (req, res) => {
             .send(util.fail(statusCode.BAD_REQUEST, resMessage.ALREADY_ID));
         return;
     }
+
+    // 비밀번호 salt값으로 저장하기
+    const salt = crypto.randomBytes(32).toString('hex');
+    const hashed = crypto.pbkdf2Sync(password, user[0].salt.toString(), 100000, 32, 'sha512').toString('hex');
+
     UserModel.push({
         id,
         name,
@@ -103,6 +108,7 @@ router.post('/signin', async (req, res) => {
         return;
     }
 
+    // 비밀번호 salt 값으로 저장하기
     const salt = crypto.randomBytes(32).toString('hex');
     const hashed = crypto.pbkdf2Sync(password, user[0].salt.toString(), 100000, 32, 'sha512').toString('hex');
     
