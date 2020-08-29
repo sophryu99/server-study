@@ -54,11 +54,21 @@ var sehwa = {
 
 ## Node.js
 
+🌟 변수 선언 방법
+
+**var**: 변수, function scope
+
+**let**: 상수, block scope
+
+=> 그렇다면 **const는**?
+
+let과 const의 차이는 변수의 **immutable** 여부이다. let은 변수에 **재할당**이 가능하지만, const는 변수 **재선언, 재할당** 모두 **불가능**하다.
+
 
 
 ## 흐름 제어
 
-🌟 **동기**와 **비동기**의 차이 (*중요!!*)
+🌟 **동기**(sync)와 **비동기**(async)의 차이 (*중요!!*)
 
 쉽게 말하면 상대방의 <u>일정 신호에 의해서 다음 동작이 일어나면</u> **동기**, <u>상대방의 상태와 상관없이 일방적으로 동작</u>하면 **비동기**라고 한다!
 
@@ -77,7 +87,7 @@ var sehwa = {
 
 
 
-🔥 node.js에서는 대부분을 비동기로 실행한다. 따라서 어떤 작업이 먼저 끝날지 모르는데, 순차적인 작업을 위해서 있는 흐름제어 방식이 **promise**이다!!
+🔥 node.js에서는 비동기 언어이다. 따라서 어떤 작업이 먼저 끝날지 모르는데, 순차적인 작업을 위해서 있는 흐름제어 방식이 **promise**이다!!
 
 
 
@@ -104,6 +114,20 @@ promise
 .then((result) => func2(result))
 .then((result) => func3(result))
 .catch((result) => console.error(result)) // errorhandler1
+```
+
+
+
+**Async & Await**: ES7부터 지원하는 자바스크립트 비동기 패턴! 장황한 Promise코드를 한 번 더 깔끔하게 줄여줌! 기존의 *비동기 처리 방식인 콜백함수*와 *Promise의 단점을 보완하여 읽기 좋은 코드*로 만들어 준다.
+
+- promise를 사용하지 않고도 효과적으로 콜백헬을 해결함. Async는 암묵적으로 promise를 반환
+- Await: Promise를 기다림 ( 성공 or 실패 ) async로 정의된 내부에서만 사용 가능
+
+```javascript
+// 기본 문법
+async function 함수명() {
+  await 비동기_처리_메서드_명();
+}
 ```
 
 
