@@ -93,7 +93,7 @@ let과 const의 차이는 변수의 **immutable** 여부이다. let은 변수에
 
 
 
-**Promise**: ES6부터 공식적으로 포함된 흐름 제어 패턴 내부적 예외처리 구조
+**🌟Promise**: ES6부터 공식적으로 포함된 흐름 제어 패턴 내부적 예외처리 구조
 
 ```javascript
 // 작업성공
@@ -106,7 +106,7 @@ new Promise(function(resolve, reject) {
 });
 ```
 
-**Promise chaining**: 여러개의 프로미스를 연결하여 사용
+**🌟Promise chaining**: 여러개의 프로미스를 연결하여 사용
 
 ```javascript
 const promise = func1('sopt')
@@ -120,7 +120,7 @@ promise
 
 
 
-**Async & Await**: ES7부터 지원하는 자바스크립트 비동기 패턴! 장황한 Promise코드를 한 번 더 깔끔하게 줄여줌! 기존의 *비동기 처리 방식인 콜백함수*와 *Promise의 단점을 보완하여 읽기 좋은 코드*로 만들어 준다.
+**🌟Async & Await**: ES7부터 지원하는 자바스크립트 비동기 패턴! 장황한 Promise코드를 한 번 더 깔끔하게 줄여줌! 기존의 *비동기 처리 방식인 콜백함수*와 *Promise의 단점을 보완하여 읽기 좋은 코드*로 만들어 준다.
 
 - promise를 사용하지 않고도 효과적으로 콜백헬을 해결함. Async는 암묵적으로 promise를 반환
 - Await: Promise를 기다림 ( 성공 or 실패 ) async로 정의된 내부에서만 사용 가능
@@ -138,7 +138,7 @@ async function 함수명() {
 
 ### node.js 내장모듈
 
-**crypto**: 문자열을 암호화, 복호화, 해싱하는 모듈
+**🌟crypto**: 문자열을 암호화, 복호화, 해싱하는 모듈
 
 - 복호화할 수 없는 암호화 방식
 - 비밀번호 암호화에 주로 사용 
@@ -173,7 +173,7 @@ crypto.pbkdf2(password, salt, iterations, keylen, digest, callback)
 
 
 
-**File system module**: 파일 시스템에 접근하는 모듈
+**🌟File system module**: 파일 시스템에 접근하는 모듈
 
 - 파일 생성, 삭제, 읽기, 쓰기 등 수행 OR 폴더 생성, 삭제
 
@@ -185,7 +185,7 @@ crypto.pbkdf2(password, salt, iterations, keylen, digest, callback)
 
 ## Express
 
-**Express**: Node를 위한 빠르고 간결한 웹 프레임워크
+**🌟Express**: Node를 위한 빠르고 간결한 웹 프레임워크
 
 - HTTP 요청에 대해 라우팅 및 미들웨어 기능 제공
 
@@ -195,7 +195,7 @@ terminal에서 express <project이름>으로 프레임워크 생성 가능!
 
 
 
-**Express 구조**
+**🌟Express 구조**
 
 - bin/www
   - 서버를 실행하는 스크립트: 프로젝트에 할당되는 포트 번호를 바꿀 수 있음
@@ -219,7 +219,7 @@ terminal에서 express <project이름>으로 프레임워크 생성 가능!
 
 
 
-**routing**이란? 
+**🌟 routing**이란? 
 
 - URI(또는 경로) 및 특정한 HTTP 요청 메소드 (GET, POST 등) 인 특정 엔드포인트에 대한 클라이언트 요청에 애플리케이션이 응답하는 방법을 결정
 - Express에서는 app.js에서 모든 요청 경로를 처리하지 않고, routes 폴더 아래의 index.js를 기준으로 파일들을 추가하며 정리
@@ -227,7 +227,34 @@ terminal에서 express <project이름>으로 프레임워크 생성 가능!
 
 
 
+Express project **실행시키기**!
+
 > 1. 최상위 폴더에서 sudo npm install –g express-generator
 > 2. express <폴더이름>
 > 3. npm install
 > 4. npm start
+
+
+
+## Database
+
+
+
+## Transaction
+
+🌟 **Transaction이란**? : 데이터베이스의 상태를 변화시키기 위해 수행하는 작업의 단위 -> 여러 단계의 처리를 하나처럼 다룸
+
+- commit: transaction의 실행 결과를 데이터베이스에 <u>반영하는 것</u>
+- Roll-back: transaction의 실행 결과를 반영하지 않고 원상태로 <u>되돌리는 것</u>
+
+```javascript
+// transaction 적용 시작
+connection.beginTransaction(config)
+
+// transaction 내 모든 쿼리 완료 후 결과 반영
+connection.commit()
+
+// transaction 내 모든 쿼리가 정상적으로 마치지 못했다면 원상태로 돌려놓음
+connection.rollBack()
+```
+
