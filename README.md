@@ -95,6 +95,10 @@ let과 const의 차이는 변수의 **immutable** 여부이다. let은 변수에
 
 **🌟Promise**: ES6부터 공식적으로 포함된 흐름 제어 패턴 내부적 예외처리 구조
 
+- pending: 작업이 새로 생성된 시점의 상태
+- fulfilled: 작업이 성공적으로 완료된 상태
+- rejected: 작업이 실패한 상태
+
 ```javascript
 // 작업성공
 new Promise(function(resolve, reject) {
