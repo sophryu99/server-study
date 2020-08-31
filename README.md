@@ -251,6 +251,8 @@ Express project **실행시키기**!
 - commit: transaction의 실행 결과를 데이터베이스에 <u>반영하는 것</u>
 - Roll-back: transaction의 실행 결과를 반영하지 않고 원상태로 <u>되돌리는 것</u>
 
+
+
 ```javascript
 // transaction 적용 시작
 connection.beginTransaction(config)
