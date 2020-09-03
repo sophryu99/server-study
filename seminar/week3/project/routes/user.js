@@ -138,7 +138,7 @@ router.get('/profile/:id', async (req, res) => {
     const dto = {
         id: user.id,
         name: user.name,
-        email: user.email
+        email: user.email 
     }
     // 성공 - login success와 함께 user Id 반환
     res.status(statusCode.OK)
