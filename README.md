@@ -260,3 +260,43 @@ connection.rollBack()
 
 🌟 **Sequelize Migration**: 운영중인 데이터베이스를 변경하는 작업!
 
+- 작업을 하다보면 사용중인 디비의 데이터를 수정해야할 일이 생긴다. 그럴때는 이 방법을 사용하면 된다!
+
+1. config.json 파일에서 database 정보 수정하기
+
+2. 데이터를 받아오는 구조체 파일.js에서 정보 수정하기
+
+3. 최상위 폴더에서 $ sequelize migration:create --name 'name'
+
+4. 위의 명령어를 실행하면 migrations 폴더에 타임스탬프가 찍힌 파일이 하나 생성된다. eg. 20160113211643-unnamed-migration.js
+
+5. 이 파일은 해당 코드 템플릿으로 구성되어 있다. 이 모듈은 `up()`과 `down()` 메소드를 노출하는데 각 각 마이그레이션과 롤백을 담당한다. `up()` 함수에 새로운 컬럼을 추가하는 코드를 작성하면, `down()` 함수에는 추가한 컬럼을 삭제하는 코드를 작성하는 식이다!
+
+   ```js
+   "use strict"
+   
+   module.exports = {
+     up: function (queryInterface, Sequelize) {
+       /*
+         Add altering commands here.
+         Return a promise to correctly handle asynchronicity.
+   
+         Example:
+         return queryInterface.createTable('users', { id: Sequelize.INTEGER });
+       */
+     },
+   
+     down: function (queryInterface, Sequelize) {
+       /*
+         Add reverting commands here.
+         Return a promise to correctly handle asynchronicity.
+   
+         Example:
+         return queryInterface.dropTable('users');
+       */
+     },
+   }
+   ```
+
+   
+
