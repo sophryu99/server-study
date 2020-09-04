@@ -258,5 +258,5 @@ connection.rollBack()
 
 
 
-🌟 **Sequelize Migration**: 운영중인 데이터베이스를 변경하는 작업
+🌟 **Sequelize Migration**: 운영중인 데이터베이스를 변경하는 작업!
 
