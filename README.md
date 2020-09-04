@@ -1,5 +1,3 @@
-
-
 # server_study
 
 🔆 server study repository 🔆
@@ -9,8 +7,6 @@
 ---
 
 
-
-[TOC]
 
 ## Javascript
 
@@ -89,7 +85,7 @@ let과 const의 차이는 변수의 **immutable** 여부이다. let은 변수에
 
 
 
-🔥 node.js에서는 비동기 언어이다. 따라서 어떤 작업이 먼저 끝날지 모르는데, 순차적인 작업을 위해서 있는 흐름제어 방식이 **promise**이다!!
+🔥 node.js에서는 **비동기 언어**이다. 따라서 어떤 작업이 먼저 끝날지 모르는데, 순차적인 작업을 위해서 있는 흐름제어 방식이 **promise**이다!!
 
 
 
@@ -183,19 +179,11 @@ crypto.pbkdf2(password, salt, iterations, keylen, digest, callback)
 
 
 
-<u>비동기 방식 vs 동기 방식</u>
-
-
-
 ## Express
 
 **🌟Express**: Node를 위한 빠르고 간결한 웹 프레임워크
 
 - HTTP 요청에 대해 라우팅 및 미들웨어 기능 제공
-
-
-
-terminal에서 express <project이름>으로 프레임워크 생성 가능!
 
 
 
@@ -234,9 +222,13 @@ terminal에서 express <project이름>으로 프레임워크 생성 가능!
 Express project **실행시키기**!
 
 > 1. 최상위 폴더에서 sudo npm install –g express-generator
-> 2. express <폴더이름>
-> 3. npm install
-> 4. npm start
+> 2. express "project" 
+> 3. ./project 에서 npm install
+> 4. ./project 에서 npm start
+
+
+
+🔥 *코드를 수정했을 때는 실행돼있는 서버를 중단하고 (command+c) npm start를 다시 해주어야 한다!*
 
 
 
@@ -263,4 +255,8 @@ connection.commit()
 // transaction 내 모든 쿼리가 정상적으로 마치지 못했다면 원상태로 돌려놓음
 connection.rollBack()
 ```
+
+
+
+🌟 **Sequelize Migration**: 운영중인 데이터베이스를 변경하는 작업
 
