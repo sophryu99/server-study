@@ -37,8 +37,19 @@ const user = {
             throw err;
         }
     },
-    checkUser: async (id) => {},
-    signin: async (id, password) => {},
+    getUserById: async (id) => {
+        // query 작성
+        const query = `SELECT * FROM ${table} WHERE id ="${id}"`;
+        // try - catch 로 error 받기
+        // pool module로 전달해서 결과값 받기
+        try {
+            return await pool.queryParam(query);
+        } catch (err) {
+            console.log('checkUser ERROR :', err);
+            throw err;
+        }
+
+    },
 }
 
 module.exports = user;

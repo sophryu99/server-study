@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 let User = require('../models/user');
 let util = require('../modules/util');
 let statusCode = require('../modules/statusCode');
 let resMessage = require('../modules/responseMessage');
+//const encrypt = require('../modules/crypto');
 
 router.post('/signup', async (req, res) => {
     const {
@@ -46,16 +47,21 @@ router.post('/signin', async (req, res) => {
         return;
     }
     const user = User.filter(user => user.id == id);
+    // User의 ID가 있는지 확인 후 없다면 NO_USER 리턴
     if (user.length == 0) {
         res.status(statusCode.BAD_REQUEST)
             .send(util.fail(statusCode.BAD_REQUEST, resMessage.NO_USER));
         return;
     }
+
+    // req의 비번 확인 후 일치하지 않으면 MISS_MATCH_PW 리턴
     if (user[0].password !== password ) {
         res.status(statusCode.BAD_REQUEST)
         .send(util.fail(statusCode.BAD_REQUEST, resMessage.MISS_MATCH_PW));
         return;
     }
+
+    // 로그인 성공
     res.status(statusCode.OK)
         .send(util.success(statusCode.OK, resMessage.LOGIN_SUCCESS, {userId: id}));
 });
