@@ -258,6 +258,41 @@ connection.rollBack()
 
 
 
+## Sequelize
+
+🌟 **Sequelize란?**: nodejs에서 mysql을 쉽게 다룰 수 있도록 도와주는 라이브러리
+
+- sequelize는 ORM(Object-Relational Mapping)로 분류가 된다. ORM 은 간단하게 **객체와 관계형 데이터베이스의 관계를 매핑 해주는 도구**이다. sequelize를 사용하면 자바스크립트 코드로 mysql을 제어할 수 있기 때문이다.
+
+
+
+1. `sequelize init`을 통해 호출을 하면 config, models, migrations, seeders 폴더가 생기는데 models안에 index.js를 수정해야 한다!
+
+```
+> sequelize init
+```
+
+```javascript
+/* sequelize\models\index.js */
+const path = require('path');
+const Sequelize = require('sequelize');
+const env = process.env.NODE_ENV || 'development';
+const config = require(
+  path.join(__dirname + '..', 'config', 'config.json')
+)[env];
+const db = {};
+const sequelize = new Sequelize(
+  config.database, config.username, config.password, config
+);
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+module.exports = db;
+```
+
+
+
+
+
 🌟 **Sequelize Migration**: 운영중인 데이터베이스를 변경하는 작업!
 
 - 작업을 하다보면 사용중인 디비의 데이터를 수정해야할 일이 생긴다. 그럴때는 이 방법을 사용하면 된다!
