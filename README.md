@@ -1,10 +1,10 @@
 # server_study
 
-🔆 server study repository 🔆
+🔆 server study repository 🔆 - 서버 뉴비의 기본기를 쌓기 위한 셀프 스터디
 
 참고자료: 생활코딩, 26th Server seminar 자료
 
-[TOC]
+
 
 ## Javascript
 
@@ -227,6 +227,50 @@ Express project **실행시키기**!
 
 
 🔥 *코드를 수정했을 때는 실행돼있는 서버를 중단하고 (command+c) npm start를 다시 해주어야 한다!*
+
+
+
+## HTTP 
+
+🌟 HTTP Status code : 알아두기!
+
+| Code    | Status                                             |
+| ------- | -------------------------------------------------- |
+| **200** | **Success**                                        |
+| 201     | Created new resource from the server               |
+| **204** | **Success - no content to return**                 |
+| **304** | **Cache purpose - no modification**                |
+| **400** | **Bad request - server did not interpret request** |
+| **401** | **Unauthorized**                                   |
+| **404** | **Not found - cannot find the resource/page**      |
+| **500** | **Internal Server error**                          |
+
+
+
+🌟 Request (Client -> Server)
+
+1. URL 
+2. Header (token 등의 부가적인 정보)
+3. Body (XML, JSON 등의 데이터)
+
+
+
+🌟 Response (Server -> Client)
+
+1. Body (XML, JSON 등의 데이터)
+
+
+
+## CRUD
+
+🌟CRUD란? : 대부분의 컴퓨터 소프트웨어가 가지는 기본적인 데이터 처리 기능
+
+| CRUD   | ACTION | HTTP Method | SQL    |
+| ------ | ------ | ----------- | ------ |
+| CREATE | 생성   | POST        | INSERT |
+| READ   | 조회   | GET         | SELECT |
+| UPDATE | 수정   | PUT         | UPDATE |
+| DELETE | 삭제   | DELETE      | DELETE |
 
 
 
